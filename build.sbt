@@ -15,3 +15,10 @@ lazy val `twitter-kafka-producer` = project.
   settings(
     libraryDependencies ++= twitterProducerDeps
   )
+
+
+lazy val `spark-streaming-demo` = project.
+  settings(commonSettings: _*).
+  settings(
+    libraryDependencies ++= sparkStreamingDemoDeps
+  )
