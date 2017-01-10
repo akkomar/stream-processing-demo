@@ -2,6 +2,7 @@ package pl.akkomar.streamprocessing.producer.twitter
 
 
 import org.apache.kafka.clients.producer.ProducerRecord
+import pl.akkomar.streamprocessing.CommonConfig
 import twitter4j._
 
 
@@ -23,7 +24,7 @@ object TwitterKafkaProducer extends App {
 
     override def onStatus(status: Status): Unit = {
       //      println("@" + status.getUser.getScreenName + ": " + status.getText)
-      kafkaProducer.send(new ProducerRecord[String, String]("tweets", status.getText))
+      kafkaProducer.send(new ProducerRecord[String, String](CommonConfig.TweetsTopic, status.getText))
     }
 
     override def onTrackLimitationNotice(numberOfLimitedStatuses: Int): Unit =

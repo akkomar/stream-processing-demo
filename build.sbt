@@ -7,18 +7,25 @@ lazy val commonSettings = Seq(
 )
 
 lazy val `stream-processing-demo` = (project in file(".")).
-  aggregate(`twitter-kafka-producer`).
+  aggregate(`twitter-kafka-producer`, `spark-streaming-demo`, `common-config`).
   settings(commonSettings: _*)
 
 lazy val `twitter-kafka-producer` = project.
+  dependsOn(`common-config`).
   settings(commonSettings: _*).
   settings(
     libraryDependencies ++= twitterProducerDeps
   )
 
-
 lazy val `spark-streaming-demo` = project.
+  dependsOn(`common-config`).
   settings(commonSettings: _*).
   settings(
     libraryDependencies ++= sparkStreamingDemoDeps
   )
+
+
+
+
+lazy val `common-config` = project.
+  settings(commonSettings: _*)
