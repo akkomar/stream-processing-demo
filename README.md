@@ -10,6 +10,8 @@ We'd like to compute top 10 hashtags during last 1 minute sliding window that ad
 ```bash
 sbt "spark-streaming-demo/run-main pl.akkomar.streamprocessing.spark.StructuredStreamingDemo"
 ```
+Aggregated counts will be printed to console.
+
 * Structured Streaming is integrated into Dataset and DataFrame APIs (isStreaming property is set to true)
 * it adds new operators for windowed aggregation and execution model (e.g. output modes)
 
