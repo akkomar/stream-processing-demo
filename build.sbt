@@ -24,6 +24,13 @@ lazy val `spark-streaming-demo` = project.
     libraryDependencies ++= sparkStreamingDemoDeps
   )
 
+lazy val `flink-streaming-demo` = project.
+  dependsOn(`common-config`).
+  settings(commonSettings: _*).
+  settings(
+    libraryDependencies ++= flinkStreamingDemoDeps
+  )
+
 
 
 
